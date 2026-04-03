@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristina Thuaux | Virtual Strength Coach for Chronic Pain & Injury Recovery</title>
+    <meta name="description" content="Root cause strength coaching for athletes and professionals stuck in the injury cycle. 25+ years experience. Virtual 1:1 coaching available.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #e87443; /* Warm burnt orange - more energetic than teal */
+            --accent-hover: #ff8f5a;
+            --border: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header/Nav */
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .cta-header {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+        }
+
+
+        .btn-tertiary {
+            background: rgba(255,255,255,0.06);
+            color: var(--text-primary);
+            border: 1px solid rgba(255,255,255,0.16);
+        }
+
+        .btn-tertiary:hover {
+            border-color: rgba(255,255,255,0.26);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero-subhead {
+            font-size: 20px;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .hero-meta strong {
+            color: var(--text-primary);
+        }
+
+        .hero-cred{
+            margin-top: 14px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .hero-cred strong{ color: var(--text-primary); }
+
+        /* What You Get Card */
+        .what-you-get-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .what-you-get-card h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .what-you-get-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .what-you-get-card li {
+            display: flex;
+            gap: 12px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .checkmark {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        /* Section */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Differentiator Section */
+        .differentiator {
+            background: linear-gradient(180deg, transparent 0%, rgba(232, 116, 67, 0.05) 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .differentiator-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .differentiator h2 {
+            font-size: 42px;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+
+        .differentiator p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .differentiator-highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .feature-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(232, 116, 67, 0.1);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+
+        /* Proof Strip */
+        .proof-strip{
+            padding: 32px 0 0;
+        }
+        .proof-grid{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .proof-card{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px 24px;
+        }
+        .proof-quote{
+            font-size: 16px;
+            font-weight: 650;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .proof-attrib{
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .testimonial-header {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--accent);
+        }
+
+        .testimonial-body {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .testimonial-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        /* Coaching Options */
+        .coaching-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .coaching-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .coaching-card.featured {
+            border-color: var(--accent);
+            background: linear-gradient(180deg, rgba(232, 116, 67, 0.05) 0%, var(--bg-card) 100%);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 32px;
+            background: var(--accent);
+            color: var(--bg-dark);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .coaching-card h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .coaching-card .subhead {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .coaching-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .coaching-card li {
+            display: flex;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .coaching-card li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .coaching-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* How It Works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .step-card {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Lead Magnet */
+        .lead-magnet {
+            background: linear-gradient(180deg, rgba(232, 116, 67, 0.05) 0%, transparent 100%);
+            border-top: 1px solid var(--border);
+        }
+
+        .lead-magnet-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .lead-magnet h2 {
+            font-size: 36px;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .lead-magnet-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .lead-magnet-features li {
+            display: flex;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .lead-magnet-features li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .form-group input {
+            padding: 14px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 60px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .footer-contact a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .what-you-get-card {
+                position: static;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .coaching-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .lead-magnet-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            /* Center and stack footer on mobile */
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            /* Smaller lead magnet heading on mobile */
+            .lead-magnet h2 {
+                font-size: 28px !important;
+            }
+            
+            /* Stack hero buttons vertically on mobile */
+            .hero-cta {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            /* Stack final CTA buttons vertically on mobile */
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+            
+            /* Reduce gap between header and hero content on mobile */
+            .hero {
+                padding: 60px 0 60px !important;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            /* Hide main nav links on mobile, keep header CTAs */
+            .nav-links {
+                display: none;
+            }
+            
+            /* Hide Movement screen button on mobile - less crowded */
+            .cta-header .btn-secondary {
+                display: none;
+            }
+            
+            /* Better mobile header layout */
+            header nav {
+                padding: 16px 20px;
+            }
+            
+            .logo {
+                gap: 10px;
+            }
+            
+            .logo span {
+                font-size: 18px;
+            }
+            
+            .cta-header {
+                gap: 8px;
+            }
+            
+            .cta-header .btn {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span>CORE CONCEPTS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#what-you-get">What you get</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#coaching">Coaching</a></li>
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="cta-header">
+                <a href="/movement-screen.html" class="btn btn-secondary">Movement screen</a>
+                <a href="https://cal.com/coreconcepts/free-consultation" class="btn btn-primary">Book consult</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <div class="hero-badge">
+                        <span>●</span>
+                        100% virtual coaching • Strength • Performance • Movement
+                    </div>
+                    <h1>Build real strength without breaking your body.</h1>
+                    <p class="hero-subhead">
+                        Expert virtual coaching for athletes and professionals who want to get stronger — without repeating the injury cycle. Train with a plan that adapts to your body, your recovery, and your real-world constraints.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="https://cal.com/coreconcepts/free-consultation" class="btn btn-primary">Book a free consultation</a>
+                        <a href="#how-it-works" class="btn btn-secondary">See how it works</a>
+                        <a href="#coaching" class="btn btn-tertiary">View coaching options</a>
+                    </div>
+                    <div class="hero-meta">
+                        <div><strong>Best for:</strong> Busy professionals who can't afford setbacks • Competitive athletes who need intelligent programming • People who've tried everything else and still get hurt</div>
+                        <div><strong>Delivery:</strong> Virtual plan + ongoing adjustments + coach oversight</div>
+                    </div>
+
+                    <div class="hero-cred">
+                        <strong>Coach:</strong> Kristina Thuaux, CSCS • 25+ years coaching experience
+                    </div>
+                </div>
+                <div class="what-you-get-card">
+                    <h3>What You Get</h3>
+                    <ul>
+                        <li>
+                            <div class="checkmark">✓</div>
+                            <span>Personalized training built around your goals, limitations, and constraints</span>
+                        </li>
+                        <li>
+                            <div class="checkmark">✓</div>
+                            <span>Root-cause coaching so you stop repeating setbacks (movement patterns, recovery, training load, lifestyle factors)</span>
+                        </li>
+                        <li>
+                            <div class="checkmark">✓</div>
+                            <span>Weekly adjustments based on your recovery, performance, and feedback</span>
+                        </li>
+                        <li>
+                            <div class="checkmark">✓</div>
+                            <span>Accountability and check-ins that keep you progressing without burning out</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiator Section -->
+    <section class="differentiator">
+        <div class="container">
+            <div class="differentiator-content">
+                <h2>Why you keep getting hurt — and what actually fixes it</h2>
+                <p>
+                    Most coaches give you exercises and hope you don't break. Most therapists fix your pain but don't build your strength. 
+                    <span class="differentiator-highlight">I do both</span> — identify the root causes (inflammation, gut health, nutrition, recovery, sleep, movement compensations) 
+                    AND build sustainable performance. You get a plan tailored to you, and a process that evolves with your body.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Proof Strip (early social proof without photos) -->
+    <section class="proof-strip" aria-label="Client results highlights">
+        <div class="container">
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <div class="proof-quote">“Better than the top rehab coaches in the US. After just two sessions.”</div>
+                    <div class="proof-attrib">— Mark & Kady B.</div>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-quote">“She went to the root of the cause. Better than any PT or doctor.”</div>
+                    <div class="proof-attrib">— Ariel Z.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section>
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-badge">● Root Cause</div>
+                    <h3>Built around your reality</h3>
+                    <p>
+                        Time, travel, old injuries, stress, gut inflammation — I design for your actual constraints instead of pretending they don't exist. We find what's really causing the problem.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-badge">● Progressive</div>
+                    <h3>Structured progression</h3>
+                    <p>
+                        No random workouts. You'll know what phase you're in, why you're doing it, and what comes next. Every decision is explained, every progression is earned.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-badge">● Sustainable</div>
+                    <h3>Feedback & adjustments</h3>
+                    <p>
+                        Plans evolve with your results. I adjust training week-to-week to keep progress moving without breaking you down. This is how you stay consistent long-term.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Your Coach -->
+    <section class="coach-section" style="background: var(--bg-card); padding: 80px 0;">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="coach-grid" style="display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center;">
+                    <div style="text-align: center;">
+                        <img src="kristina-photo.png" alt="Kristina Thuaux, CSCS" style="width: 280px; height: 280px; border-radius: 8px; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                    </div>
+                    <div>
+                        <h2 style="margin: 0 0 8px 0; font-size: 32px; color: var(--text-primary);">Meet Your Coach</h2>
+                        <h3 style="margin: 0 0 24px 0; font-size: 20px; color: var(--accent); font-weight: 600;">Kristina Thuaux, CSCS</h3>
+                        <p style="font-size: 16px; line-height: 1.7; color: var(--text-primary); margin: 0 0 16px 0;">
+                            25+ years building sustainable strength and mobility that lasts. My approach: find the root cause (gut health, inflammation, nutrition, recovery, sleep, movement patterns most coaches ignore), fix that, then build real performance on top.
+                        </p>
+                        <p style="font-size: 16px; line-height: 1.7; color: var(--text-primary); margin: 0 0 32px 0;">
+                            CSCS certified, 10+ years offering virtual coaching (6+ years full-time). From nationally-ranked athletes to busy professionals who can't afford setbacks.
+                        </p>
+                        <a href="https://cal.com/coreconcepts/free-consultation" class="btn btn-primary">Book a free consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            @media (max-width: 768px) {
+                /* Stack photo above text */
+                .coach-section .coach-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 24px !important;
+                    text-align: center;
+                }
+                
+                /* Center and resize photo */
+                .coach-section img {
+                    width: 200px !important;
+                    height: 200px !important;
+                    margin: 0 auto !important;
+                    display: block;
+                }
+                
+                /* Center headings and name */
+                .coach-section h2,
+                .coach-section h3 {
+                    text-align: center !important;
+                }
+                
+                /* Keep bio text left-aligned for readability */
+                .coach-section p {
+                    text-align: left !important;
+                }
+                
+                /* Center the button */
+                .coach-section a.btn {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 280px;
+                }
+            }
+        </style>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="results">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real results from real people</h2>
+                <p>Athletes, professionals, and people who thought they'd tried everything — here's what happened when they finally got the right approach.</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1: Mark & Kady -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">"Better than the top rehab coaches in the US. After just two sessions."</div>
+                    <div class="testimonial-body">
+                        For 5 years, my wife and I had various nagging injuries in our backs, hips, and knees that prevented us from living life. We worked with several of the top rehab coaches in the US and made some progress, but never the progress we needed. After just two sessions with Kristina, taking on her different approaches to rehab training and nutrition, both my wife and I feel better than when we started dating nearly a decade ago!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Mark & Kady B.</div>
+                        <div class="testimonial-title">Ex-Navy SEAL & CrossFit Athlete</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2: Catherine -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">"More explosive, faster, agile — competing at the national level."</div>
+                    <div class="testimonial-body">
+                        Our daughter is a 13-year-old nationally ranked junior tennis player. Kristina has made her more explosive, faster, and agile so she can compete with the best in the country. More importantly, she helped our daughter get back on the court after a serious knee injury. Kristina looks for the root cause of the problem and uses a holistic approach to prevent reoccurring injuries to maximize potential.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Catherine R.</div>
+                        <div class="testimonial-title">Parent of Nationally Ranked Tennis Player</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3: Ariel -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">"She went to the root of the cause. Better than any PT or doctor."</div>
+                    <div class="testimonial-body">
+                        I came to Kristina with nerve pain from a herniated disc. She went to the root of the cause and found what was causing those movement pattern compensations. She helped me alleviate my pain and increase my mobility better than any physical therapist or traditional doctor had. I used her program consistently for six months. She has a customer for life in me.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Ariel Z.</div>
+                        <div class="testimonial-title">Recovered from Herniated Disc</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4: Dianne -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">"12 years pain-free. I can travel and lift my bags independently."</div>
+                    <div class="testimonial-body">
+                        I've been training with Kristina for 12 years. My initial request was "train me so I can lift bags into the overhead compartment on a plane." She did that and so much more. I used to have chronic back issues, but I have not had any back problems in all these years. The workouts are constantly changing to correct your current specific physical issues.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Dianne S.</div>
+                        <div class="testimonial-title">12-Year Client</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="https://cal.com/coreconcepts/free-consultation" class="btn btn-primary">Book a free consult</a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Coaching Options -->
+    <section id="coaching">
+        <div class="container">
+            <div class="section-header">
+                <h2>Coaching options</h2>
+                <p>Choose the level of support you want. If you're unsure, book a free consult and I'll match you to the best fit.</p>
+            </div>
+            <div class="coaching-grid">
+                <!-- Virtual 1:1 Coaching -->
+                <div class="coaching-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Virtual 1:1 Coaching</h3>
+                    <p class="subhead">
+                        Personalized training + ongoing adjustments + accountability. Built for serious, sustainable progress.
+                    </p>
+                    <ul>
+                        <li>Custom plan built around your goals, limitations & constraints</li>
+                        <li>Weekly or bi-weekly check-ins & adjustments</li>
+                        <li>Root cause analysis (movement, nutrition, inflammation, recovery, sleep)</li>
+                        <li>Ongoing plan updates as you adapt and progress</li>
+                        <li>Feedback + progress tracking</li>
+                    </ul>
+                    <div class="coaching-buttons">
+                        <a href="https://cal.com/coreconcepts/free-consultation" class="btn btn-primary">Apply / book consult</a>
+                        <a href="#faq" class="btn btn-secondary">Read FAQ</a>
+                    </div>
+                </div>
+
+                <!-- Self-Directed Programs -->
+                <div class="coaching-card">
+                    <h3>Self-Directed Programs</h3>
+                    <p class="subhead">
+                        Structured programs with clear progression. Great for experienced trainees who know their body.
+                    </p>
+                    <ul>
+                        <li>Goal-specific training blocks (8-12 weeks)</li>
+                        <li>Simple progression rules built in</li>
+                        <li>Flexible scheduling options</li>
+                        <li>Perfect "start here" option if you're unsure about 1:1</li>
+                        <li>One-time payment, yours to keep and repeat</li>
+                    </ul>
+                    <div class="coaching-buttons">
+                        <a href="/movement-screen.html" class="btn btn-secondary">Take movement screen</a>
+                        <a href="https://cal.com/coreconcepts/free-consultation" class="btn btn-secondary">Book a consult</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How it works</h2>
+                <p>Simple process. High-level execution.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Book a call</h3>
+                    <p>Quick conversation to confirm fit and goals.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Assessment</h3>
+                    <p>Training history, constraints, movement patterns & priorities.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Your Plan</h3>
+                    <p>Custom program designed around your life, body, and targets.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Train + Feedback</h3>
+                    <p>Check-ins, adjustments, and accountability.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Progress</h3>
+                    <p>Measured improvement with sustainable momentum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>FAQ</h2>
+                <p>Answering the questions people have before they book.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Does virtual coaching actually work?</div>
+                    <div class="faq-answer">
+                        Yes — I've been offering virtual coaching for over 10 years, and doing it full-time for the past 6 years. It works because the value is in programming decisions, root cause analysis, and consistent feedback. Most people don't need someone physically spotting them; they need someone who understands why their body keeps breaking down and how to fix it. Virtual allows me to track patterns over time and adjust intelligently.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How often do we check in?</div>
+                    <div class="faq-answer">
+                        Typically weekly or bi-weekly depending on your plan, goals, and how quickly you're adapting. More frequent check-ins for athletes or complex cases, less frequent for experienced trainees with stable patterns.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I need a gym?</div>
+                    <div class="faq-answer">
+                        No. I can build plans around home equipment, minimal equipment, or a full gym setup. What matters is progressive overload and intelligent programming — not the specific tools.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I know which option is right for me?</div>
+                    <div class="faq-answer">
+                        Book a free consult. We'll clarify your goals, constraints, injury history, and match you to the best-fit option. No pressure — just a clear plan for what to do next.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if I have old injuries or pain?</div>
+                    <div class="faq-answer">
+                        That's exactly who I work with. Most of my clients come to me with chronic issues that haven't resolved with traditional approaches. I find the root cause (often gut inflammation, nutrition, recovery, sleep, movement compensations) and address that while building strength.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What results can I expect?</div>
+                    <div class="faq-answer">
+                        Depends on your starting point and goals. Most clients see pain reduction within 2-4 weeks, movement improvements within 4-8 weeks, and measurable strength gains within 8-12 weeks. Long-term clients (12+ months) typically report being pain-free, stronger than they've been in years, and training consistently without setbacks.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet -->
+    <section class="lead-magnet" id="lead-magnet">
+        <div class="container">
+            <div class="lead-magnet-content">
+                <div>
+                    <h2>Free Root Cause Movement Screen</h2>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Not ready to book yet? Take the 2-minute movement assessment and discover whether your issues are structural or systemic.
+                    </p>
+                    <ul class="lead-magnet-features">
+                        <li>Quick baseline movement test</li>
+                        <li>Identify if your issues are structural vs systemic</li>
+                        <li>Get personalized next steps</li>
+                        <li>Receive follow-up guidance via email</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 20px;">Start the assessment</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
+                        Takes 2-3 minutes. You'll get immediate results plus a personalized action plan sent to your email.
+                    </p>
+                    <a href="/movement-screen.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Take the movement screen →</a>
+                    <p style="font-size: 13px; color: var(--text-secondary); margin-top: 12px;">
+                        No signup required to start. Email only needed at the end to receive your results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 style="font-size: 42px; margin-bottom: 16px;">Want clarity on the fastest path to your goals?</h2>
+            <p style="color: var(--text-secondary); font-size: 18px; max-width: 600px; margin: 0 auto 32px;">
+                Book a free consult. No pressure — just a clear plan for what to do next.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://cal.com/coreconcepts/free-consultation" class="btn btn-primary">Book a free consult</a>
+                <a href="#coaching" class="btn btn-secondary">Review coaching options</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Core Concepts</h3>
+                    <p>Expert virtual strength & performance coaching. Build real strength without breaking your body.</p>
+                    <div class="footer-contact">
+                        <a href="/cdn-cgi/l/email-protection#afc6c1c9c0efccc0ddcaccc0c1cccadfdbdc81ccc0"><span class="__cf_email__" data-cfemail="96fff8f0f9d6f5f9e4f3f5f9f8f5f3e6e2e5b8f5f9">[email&#160;protected]</span></a>
+                        <div style="margin-top: 8px; font-size: 14px; color: var(--text-secondary);">
+                            Questions? <a href="https://cal.com/coreconcepts/free-consultation" style="color: var(--accent); text-decoration: none;">Book a free consultation →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#coaching">Coaching Options</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="/movement-screen.html">Movement Screen</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://cal.com/coreconcepts/free-consultation">Book Consultation</a>
+                    <a href="/terms-policies">Terms & Policies</a>
+                    <a href="/privacy-policy">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 Core Concepts • All rights reserved</div>
+                <div>Virtual strength & performance coaching</div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission placeholder
+        document
